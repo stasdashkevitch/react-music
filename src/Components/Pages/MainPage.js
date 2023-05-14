@@ -1,13 +1,9 @@
-import FooterMain from "../FooterMain";
-import Header from "../Header";
-import Navigation from "../Navigation";
+import Main from "../Main";
 
 const MainPage = () => {
     return(
         <>
-            <Navigation/>
-            <Header/>
-            <FooterMain/>
+            <Main/>
         </>
     )
 }

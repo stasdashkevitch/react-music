@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+
 import mainPhoto from '../../resources/img/mainphoto.png';
 
 const MainDescription = () => {
@@ -9,7 +11,7 @@ const MainDescription = () => {
                         <h2 className="text1">ГигаМузыка - стриминговый сервис нового поколения</h2>
                         <p className="text2">Самый передовой стриминговый сервис с ежедневным охватом более 10 млн пользователей</p>
                         <div className="registration111">
-                            <a href="#" className="registrationBtn">Регистрация</a>
+                            <NavLink to="/registration" className="registrationBtn">Регистрация</NavLink>
                         </div>
                     </div>
                 </div>

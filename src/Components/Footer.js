@@ -3,7 +3,7 @@ import Instagram from '../resources/img/Instagram.jpg';
 import Twitter from '../resources/img/Twitter.jpg';
 import Youtube from '../resources/img/Youtube.jpg';
 
-const FooterMain = () => {
+const Footer = () => {
     return(
         <>
             <footer className="footer-section">
@@ -63,4 +63,4 @@ const FooterMain = () => {
     )
 }
 
-export default FooterMain;
+export default Footer;

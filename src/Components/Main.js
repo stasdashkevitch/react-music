@@ -4,7 +4,7 @@ import Possibilities from "./HeaderComponents/Possibilities";
 import Subscriptions from "./HeaderComponents/Subscriptions";
 import TracksDescription from "./HeaderComponents/TracksDescription";
 
-const Header = () => {
+const Main = () => {
     return (
         <>
             <main className="container`-xxl">
@@ -18,4 +18,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Main;
