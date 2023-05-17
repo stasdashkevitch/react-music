@@ -7,7 +7,7 @@ const Possibilities = () => {
     return(
         <>
             <section id="destination-section">
-                <div className="container007">
+                <div className="container007" id={"possibilities"}>
                     <h2 className="title-section35 destination-section__title">Возможности ГигаМузыки</h2>
                     <h3 className="title-section30 destination-section__title">Ниже перечислены некоторые возможности нашего сервиса</h3>
                     <div className="destination-wrap">

@@ -11,7 +11,7 @@ const MainDescription = () => {
                         <h2 className="text1">ГигаМузыка - стриминговый сервис нового поколения</h2>
                         <p className="text2">Самый передовой стриминговый сервис с ежедневным охватом более 10 млн пользователей</p>
                         <div className="registration111">
-                            <NavLink to="/registration" className="registrationBtn">Регистрация</NavLink>
+                            <NavLink to="/registration" className="registrationBtn reg">Регистрация</NavLink>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ import Youtube from '../resources/img/Youtube.jpg';
 const Footer = () => {
     return(
         <>
-            <footer className="footer-section">
+            <footer style={{'cursor' : 'none'}} className="footer-section">
                     <div className="footer-cta pt-5 ">
                         <div className="row">
                             <div className="col-xl-4 col-md-4 mb-30">

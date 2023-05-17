@@ -8,19 +8,21 @@ const Nav = () => {
                 <header className="header">
                 <div className="header-container">
                     <div className="header-logo">
-                        <h2 className="logo">ГигаМузыка</h2>
+                        <NavLink to="/" className="logo">ГигаМузыка</NavLink>
                     </div>
                     <div className="header-navbar">
                         <nav id="nav" className="nav">
                             <ul className="nav-list">
-                                <li className="nav-item "><NavLink to="/" className="nav-link">Главная</NavLink></li>
-                                <li className="nav-item "><a href="" className="nav-link">Возможности</a></li>
-                                <li className="nav-item "><a href="" className="nav-link">Подписка</a></li>
+                                <li className="nav-item "><NavLink exact to="/">Главная</NavLink></li>
+                                <li className="nav-item "><NavLink exact to="/catalog">Каталог</NavLink></li>
+                                <li className="nav-item "><NavLink exact to="/profile">Профиль</NavLink></li>
+                                <li className="nav-item "><a href="#possibilities">Возможности</a></li>
+                                <li className="nav-item "><a href="#sub">Подписка</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div className="registration">
-                        <a href="">Войти</a>
+                        <NavLink to="/login" className="reg">Войти</NavLink>
                     </div>
                 </div>
             </header>

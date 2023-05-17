@@ -7,7 +7,7 @@ const Subscriptions = () => {
     return(
         <>
             <section id="destination-section">
-                    <div className="container007">
+                    <div className="container007" id="sub">
                         <h2 className="title-section35 destination-section__title">Наши подписки</h2>
                         <h3 className="title-section30 destination-section__title">Выберите подписку, которая больше всего вам подходит</h3>
                         <div className="destination-wrapii">
