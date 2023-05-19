@@ -19,7 +19,7 @@ const Subscriptions = () => {
                                     <p className="destination__textt">Возможность добавлять треки в избранное</p>
 
                                     <div className="registration007">
-                                        <a href="" className="registrationBtnn">Регистрация</a>
+                                        <p href="" className="registrationBtnn">Регистрация</p>
                                     </div>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@ const Subscriptions = () => {
                                     <p className="destination__textt">Воспроизведение треков в качестве FLAC</p>
                                     <p className="destination__textt">Возможность добавлять треки в избранное</p>
                                     <div className="registration007">
-                                        <a href="" className="registrationBtnn">Регистрация</a>
+                                        <p href="" className="registrationBtnn">Регистрация</p>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ const Subscriptions = () => {
                                     <p className="destination__textt">Возможность добавлять треки в избранное</p>
                                     <p className="destination__textt">Возможность подключить к аккаунту до 3 членов семьи</p>
                                     <div className="registration007">
-                                        <a href="" className="registrationBtnn">Регистрация</a>
+                                        <p href="" className="registrationBtnn">Регистрация</p>
                                     </div>
                                 </div>
                             </div>                    

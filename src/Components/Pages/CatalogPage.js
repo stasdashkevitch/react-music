@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
-import { tracksFetching, tracksFetched, tracksErrorFetching, setCategories, setCategoriesUrl, plailistFetched, plailistsFetching } from "../../actions/actions";
+import {  searchTracksFetched, setCategories, setCategoriesUrl, plailistFetched, plailistsFetching,
+setSearch } from "../../actions/actions";
 
 import Tracks from "../Tracks";
 import Playlists from "../Playlists";
@@ -15,16 +16,17 @@ const CatalogPage = () => {
 
 
     useEffect(() => {
-        dispatch(tracksFetching());
-        axios(`https://api.spotify.com/v1/browse/categories`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          method: 'GET'
-        }).then(cat => {
-            console.log(cat.data.categories.items);
-            dispatch(setCategories(cat.data.categories.items));
-        })
+        if (token) {
+            axios(`https://api.spotify.com/v1/browse/categories`, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+              method: 'GET'
+            }).then(cat => {
+                console.log(cat.data.categories.items);
+                dispatch(setCategories(cat.data.categories.items));
+            })
+        }
     }, [])
 
     return(
@@ -39,11 +41,12 @@ const CatalogPage = () => {
 
 const View = () => {
     const dispatch = useDispatch();
-    const {categories, categoriesUrl, token} = useSelector(state => state);
+    const {categories, categoriesUrl, token, search, playlists, searchTracks} = useSelector(state => state);
 
     const categoriesChanged = (id) => {
         dispatch(setCategoriesUrl(id));
         dispatch(plailistsFetching());
+        dispatch(searchTracksFetched([]));
         axios(`https://api.spotify.com/v1/browse/categories/${id}/playlists`, {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -55,19 +58,47 @@ const View = () => {
           })
     }
 
-        const items = categories.map((item, i) => {
-            return (
-                <li onClick={() => categoriesChanged(item.id)} key={i}><a className="dropdown-item" href="#">{item.name}</a></li>
-            )
+    const items = categories.map((item, i) => {
+        return (
+            <li onClick={() => categoriesChanged(item.id)} key={i}><a className="dropdown-item" href="#">{item.name}</a></li>
+        )
+    })
+
+    const onSubmitTracks = (e) => {
+        e.preventDefault();
+        axios(`https://api.spotify.com/v1/search`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            params: {
+                q: search,
+                type: "track"
+            },
+            method: 'GET'
         })
+        .then(tracks => {
+            dispatch(searchTracksFetched(tracks.data.tracks.items));
+            dispatch(plailistFetched([]));
+            console.log(tracks.data)
+        })
+    }
+    const allPlaylists = playlists.map((item, i) => {
+        return categoriesUrl ? <Playlists playlist={item} key={i}/> : null
+    }) 
+
+    const allTracksFilter = searchTracks.filter(item => item.preview_url !== null);
+
+    const allTracks = allTracksFilter.map((item, i) => {
+        return <Tracks track={item} key={i}/>
+    })
 
     return(
         <>
             <div className="container">
                 <nav className="navbar ">
                     <div className="container-fluid">
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Поиск"/>
+                        <form onSubmit={onSubmitTracks} className="d-flex" role="search">
+                            <input onChange={e => dispatch(setSearch(e.target.value))} className="form-control me-2" type="text" placeholder="Поиск"/>
                         </form>
                         <div className="contentSorting">
                             Категория
@@ -90,8 +121,9 @@ const View = () => {
 
                 </nav>
             </div>
-            {categoriesUrl ? <Playlists/> : null}
-            <Tracks/>
+            {allPlaylists}
+            {search ? allTracks : null}
+            
         </>
     )
 }

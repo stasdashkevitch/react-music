@@ -849,6 +849,7 @@ body {
 }
 
 .cards {
+  position: relative;
   margin-bottom: 20px;
   background-color: #041B28;
   border-radius: 20px;
@@ -1151,4 +1152,21 @@ i {
 
 .reg {
   color: white;
+}
+
+.audio_container {
+  position: absolute;
+  top: 50px;
+  left: 400px;
+}
+
+a {
+  color: #fff;
+}
+
+.img_logo {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  object-fit: cover;
 }
