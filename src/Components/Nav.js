@@ -33,7 +33,7 @@ const Nav = () => {
                         {user ? 
                              <NavLink to="/profile">
                                 <img   className="img_logo"
-                                    src={user.images[0].url}
+                                    src={(user.images[0].url === undefined) ? null : user.images[0].url}
                                     alt="Face" />
                              </NavLink> :
                             <div className="registration">

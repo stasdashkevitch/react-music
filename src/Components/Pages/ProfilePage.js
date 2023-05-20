@@ -24,7 +24,7 @@ const ProfilePage = () => {
                         <div className="personBox">
                             <div className="boxLogo">
                                 <a href=""> <img
-                                        src={user.images[0].url}
+                                        src={(user.images[0].url === undefined) ? null : user.images[0].url}
                                         alt="Face" id="personFaceLogo"/></a>
                             </div>
                         </div>

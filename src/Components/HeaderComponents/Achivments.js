@@ -13,9 +13,10 @@ const Achivments = () => {
                         </div>
                         
                         <div className="piska">
+                        <i class="fa-sharp fa-light fa-house"></i>
                             <p className="podtextt">Зарегистрированных пользователей</p>
                         </div>
-                        <i className="fa-sharp fa-solid fa-wallet"></i>
+                        <i class="fa-sharp fa-light fa-house"></i>
                         <div className="piska1">
                             <p className="podtextt">Кураторов плейлистов</p>
                         </div>
